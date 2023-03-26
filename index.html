@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora de Porcentagem</title>
+</head>
+<body>
+	<h1>Calculadora de Porcentagem</h1>
+	<form>
+		<label for="numero">Insira um número:</label>
+		<input type="number" id="numero" name="numero"><br><br>
+		<button type="button" onclick="calcular()">Calcular</button>
+	</form>
+	<p id="resultado"></p>
+	<script>
+		function calcular() {
+			var numero = document.getElementById("numero").value;
+			var porcentagem;
+
+			if (numero >= 0 && numero <= 5000) {
+				porcentagem = 80;
+			} else if (numero > 5000 && numero <= 10000) {
+				porcentagem = 65;
+			} else if (numero > 10000 && numero <= 50000) {
+				porcentagem = 30;
+			} else if (numero > 50000 && numero <= 80000) {
+				porcentagem = 25;
+			} else if (numero > 80000 && numero <= 100000) {
+				porcentagem = 20;
+			} else if (numero > 100000 && numero <= 250000) {
+				porcentagem = 10;
+			} else if (numero > 250000 && numero <= 1000000) {
+				porcentagem = 5;
+			} else {
+				alert("Número inválido!");
+				return;
+			}
+
+			var porcentagemCalculada = (numero * porcentagem) / 100;
+			var soma = parseInt(numero) + porcentagemCalculada;
+			var resultado = "Soma: " + soma + "<br>Porcentagem: " + porcentagemCalculada;
+			document.getElementById("resultado").innerHTML = resultado;
+		}
+	</script>
+</body>
+</html>
